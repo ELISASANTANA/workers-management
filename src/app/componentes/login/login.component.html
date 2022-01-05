@@ -1,0 +1,18 @@
+<section class="d-flex justify-content-center">
+  <div class="card my-5 col-4 p-3">
+    <h4>Login</h4>
+    <form class="row" [formGroup]="form">
+      <div class="mb-3">
+        <label>E-mail</label>
+        <input type="text" class="form-control" placeholder="Digite seu e-mail" formControlName="email">
+      </div>
+      <div class="mb-3">
+        <label>Senha</label>
+        <input type="password" class="form-control" placeholder="Insira sua senha" formControlName="senha">
+      </div>
+      <div class="mb-3">
+        <button (click)="fazerLogin()" class="btn">Entrar</button>
+      </div>
+    </form>
+  </div>
+</section>

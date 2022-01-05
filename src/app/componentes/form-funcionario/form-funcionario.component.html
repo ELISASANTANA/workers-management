@@ -1,0 +1,39 @@
+<div class="card px-3">
+  <div class="card-body text-center">
+    <h5>{{titleForm}}</h5>
+  </div>
+  <form [formGroup]="form">
+    <div class="input-group mb-2">
+      <span class="input-group-text"><i class="fas fa-user"></i></span>
+      <input type="text" class="form-control" placeholder="Nome do funcionario" formControlName="nome"
+                             [class.valido]="this.form.get('nome')?.valid"
+                             [class.invalido]="this.form.get('nome')?.invalid && this.form.get('nome')?.touched" required minlength="3">
+    </div>
+    <div class="input-group mb-2">
+      <span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+      <input type="email" class="form-control" placeholder="E-mail do funcionario" formControlName="email" 
+                              [class.valido]="this.form.get('email')?.valid"
+                              [class.invalido]="this.form.get('email')?.invalid && this.form.get('email')?.touched" required>
+    </div>
+    <div class="input-group">
+      <label>Selecione o cargo:</label>
+    </div>
+      <select name="cargo" class="form-control mb-2" formControlName="cargo"
+                              [class.valido]="this.form.get('cargo')?.valid"
+                              [class.invalido]="this.form.get('cargo')?.invalid && this.form.get('cargo')?.touched">
+        <option value="">Selecione</option>
+        <option value="ADM">Administração</option>
+        <option value="RH">Recursos Humanos</option>
+        <option value="TI">Tecnologia da Informação</option>
+      </select>
+    <div class="input-group mb-2">
+      <span class="input-group-text"><i class="fas fa-money-check-alt"></i></span>
+      <input type="text" class="form-control" placeholder="Salario do funcionário" formControlName="salario">
+    </div>
+    <div class="input-group mb-2">
+      <input type="file" accept=".png, .jpg, .jpeg" (change)="carregarImg($event)" class="form-control" placeholder="Foto do funcionário" formControlName="foto">
+    </div>
+    <button [disabled]="!form.valid" (click)="salvarFuncionario()" class="btn btn-success mb-2">Salvar</button>
+    <button class="btn btn-outline-danger mb-2 mx-2">Cancelar</button>
+  </form>
+</div>
